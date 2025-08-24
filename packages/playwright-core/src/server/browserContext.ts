@@ -715,8 +715,8 @@ export function validateBrowserContextOptions(options: types.BrowserContextOptio
   // In 6-12 months, we can remove this check.
   else if (options.acceptDownloads === undefined && browserOptions.name === 'electron')
     options.acceptDownloads = 'internal-browser-default';
-  if (!options.viewport && !options.noDefaultViewport)
-    options.viewport = { width: 1280, height: 720 };
+  // if (!options.viewport && !options.noDefaultViewport)
+  //   options.viewport = { width: 1280, height: 720 };
   if (options.recordVideo) {
     if (!options.recordVideo.size) {
       if (options.noDefaultViewport) {

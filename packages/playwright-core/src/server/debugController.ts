@@ -206,13 +206,13 @@ function wireListeners(recorder: Recorder, debugController: DebugController) {
 
   const actionsChanged = () => {
     const aa = collapseActions(actions);
-    const { header, footer, text, actionTexts } = generateCode(aa, languageGenerator, {
+    const { header, footer, text, actionTexts, steps } = generateCode(aa, languageGenerator, {
       browserName: 'chromium',
       launchOptions: {},
       contextOptions: {},
       generateAutoExpect: debugController._generateAutoExpect,
     });
-    debugController.emit(DebugController.Events.SourceChanged, { text, header, footer, actions: actionTexts });
+    debugController.emit(DebugController.Events.SourceChanged, { text, header, footer, actions: actionTexts, steps });
   };
 
   recorder.on(RecorderEvent.ElementPicked, (elementInfo: ElementInfo) => {

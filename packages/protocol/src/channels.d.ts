@@ -348,6 +348,41 @@ export type FormField = {
 };
 
 export type SDKLanguage = 'javascript' | 'python' | 'java' | 'csharp';
+export type ScriptStep = {
+  frame: {
+    pageGuid: string,
+    pageAlias: string,
+    framePath?: string[],
+  },
+  action: {
+    name: string,
+    selector?: string,
+    text?: string,
+    url?: string,
+    key?: string,
+    modifiers?: number,
+    clickCount?: number,
+    button?: string,
+    position?: {
+      x: number,
+      y: number,
+    },
+    options?: string[],
+    files?: string[],
+    substring?: boolean,
+    value?: string,
+    checked?: boolean,
+    ariaSnapshot?: string,
+    signals?: {
+      name: string,
+      url?: string,
+      popupAlias?: string,
+      downloadAlias?: string,
+      dialogAlias?: string,
+    }[],
+  },
+};
+
 // ----------- APIRequestContext -----------
 export type APIRequestContextInitializer = {
   tracing: TracingChannel,
@@ -771,6 +806,7 @@ export type DebugControllerSourceChangedEvent = {
   header?: string,
   footer?: string,
   actions?: string[],
+  steps?: ScriptStep[],
 };
 export type DebugControllerPausedEvent = {
   paused: boolean,

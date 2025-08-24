@@ -214,6 +214,40 @@ scheme.FormField = tObject({
   })),
 });
 scheme.SDKLanguage = tEnum(['javascript', 'python', 'java', 'csharp']);
+scheme.ScriptStep = tObject({
+  frame: tObject({
+    pageGuid: tString,
+    pageAlias: tString,
+    framePath: tOptional(tArray(tString)),
+  }),
+  action: tObject({
+    name: tString,
+    selector: tOptional(tString),
+    text: tOptional(tString),
+    url: tOptional(tString),
+    key: tOptional(tString),
+    modifiers: tOptional(tInt),
+    clickCount: tOptional(tInt),
+    button: tOptional(tString),
+    position: tOptional(tObject({
+      x: tFloat,
+      y: tFloat,
+    })),
+    options: tOptional(tArray(tString)),
+    files: tOptional(tArray(tString)),
+    substring: tOptional(tBoolean),
+    value: tOptional(tString),
+    checked: tOptional(tBoolean),
+    ariaSnapshot: tOptional(tString),
+    signals: tOptional(tArray(tObject({
+      name: tString,
+      url: tOptional(tString),
+      popupAlias: tOptional(tString),
+      downloadAlias: tOptional(tString),
+      dialogAlias: tOptional(tString),
+    }))),
+  }),
+});
 scheme.APIRequestContextInitializer = tObject({
   tracing: tChannel(['Tracing']),
 });
@@ -461,6 +495,7 @@ scheme.DebugControllerSourceChangedEvent = tObject({
   header: tOptional(tString),
   footer: tOptional(tString),
   actions: tOptional(tArray(tString)),
+  steps: tOptional(tArray(tType('ScriptStep'))),
 });
 scheme.DebugControllerPausedEvent = tObject({
   paused: tBoolean,

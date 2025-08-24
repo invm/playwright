@@ -24,7 +24,8 @@ export function generateCode(actions: actions.ActionInContext[], languageGenerat
   const footer = languageGenerator.generateFooter(options.saveStorage);
   const actionTexts = actions.map(a => generateActionText(languageGenerator, a, !!options.generateAutoExpect)).filter(Boolean) as string[];
   const text = [header, ...actionTexts, footer].join('\n');
-  return { header, footer, actionTexts, text };
+  const steps = actions.map(({ frame, action }) => ({ frame, action }));
+  return { header, footer, actionTexts, text, steps };
 }
 
 function generateActionText(generator: LanguageGenerator, action: actions.ActionInContext, generateAutoExpect: boolean): string | undefined {

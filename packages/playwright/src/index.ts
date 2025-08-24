@@ -146,7 +146,7 @@ const playwrightFixtures: Fixtures<TestFixtures, WorkerFixtures> = ({
   clientCertificates: [({ contextOptions }, use) => use(contextOptions.clientCertificates), { option: true, box: true }],
   timezoneId: [({ contextOptions }, use) => use(contextOptions.timezoneId), { option: true, box: true }],
   userAgent: [({ contextOptions }, use) => use(contextOptions.userAgent), { option: true, box: true }],
-  viewport: [({ contextOptions }, use) => use(contextOptions.viewport === undefined ? { width: 1280, height: 720 } : contextOptions.viewport), { option: true, box: true }],
+  viewport: [({ contextOptions }, use) => use(contextOptions.viewport === undefined ? null : contextOptions.viewport), { option: true, box: true }],
   actionTimeout: [0, { option: true, box: true }],
   testIdAttribute: ['data-testid', { option: true, box: true }],
   navigationTimeout: [0, { option: true, box: true }],
