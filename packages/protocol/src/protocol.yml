@@ -941,6 +941,11 @@ DebugController:
       parameters:
         enabled: boolean
 
+    navigate:
+      internal: true
+      parameters:
+        url: string
+
     setRecorderMode:
       internal: true
       parameters:

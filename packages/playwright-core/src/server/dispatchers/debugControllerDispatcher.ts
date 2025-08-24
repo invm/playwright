@@ -58,6 +58,10 @@ export class DebugControllerDispatcher extends Dispatcher<DebugController, chann
     this._object.setReportStateChanged(params.enabled);
   }
 
+  async navigate(params: channels.DebugControllerNavigateParams, progress: Progress) {
+    await this._object.navigate(progress, params.url);
+  }
+
   async setRecorderMode(params: channels.DebugControllerSetRecorderModeParams, progress: Progress) {
     await this._object.setRecorderMode(progress, params);
   }

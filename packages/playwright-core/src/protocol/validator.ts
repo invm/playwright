@@ -509,6 +509,10 @@ scheme.DebugControllerSetReportStateChangedParams = tObject({
   enabled: tBoolean,
 });
 scheme.DebugControllerSetReportStateChangedResult = tOptional(tObject({}));
+scheme.DebugControllerNavigateParams = tObject({
+  url: tString,
+});
+scheme.DebugControllerNavigateResult = tOptional(tObject({}));
 scheme.DebugControllerSetRecorderModeParams = tObject({
   mode: tEnum(['inspecting', 'recording', 'none']),
   testIdAttributeName: tOptional(tString),

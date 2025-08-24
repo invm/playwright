@@ -37,6 +37,7 @@ export const methodMetainfo = new Map<string, { internal?: boolean, title?: stri
   ['Playwright.newRequest', { title: 'Create request context', }],
   ['DebugController.initialize', { internal: true, }],
   ['DebugController.setReportStateChanged', { internal: true, }],
+  ['DebugController.navigate', { internal: true, }],
   ['DebugController.setRecorderMode', { internal: true, }],
   ['DebugController.highlight', { internal: true, }],
   ['DebugController.hideHighlight', { internal: true, }],

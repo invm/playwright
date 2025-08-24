@@ -88,6 +88,10 @@ export class DebugController extends SdkObject {
       this._disposeListeners.clear();
     }
   }
+  async navigate(progress: Progress, url: string) {
+    for (const p of this._playwright.allPages())
+      await p.mainFrame().goto(progress, url);
+  }
 
   async setRecorderMode(progress: Progress, params: { mode: Mode, testIdAttributeName?: string, generateAutoExpect?: boolean }) {
     await progress.race(this._closeBrowsersWithoutPages());
